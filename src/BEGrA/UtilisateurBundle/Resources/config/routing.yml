@@ -1,0 +1,3 @@
+be_gr_a_utilisateur_homepage:
+    path:     /
+    defaults: { _controller: BEGrAUtilisateurBundle:Default:index }

@@ -1,0 +1,3 @@
+be_gr_a_adhesion_homepage:
+    path:     /
+    defaults: { _controller: BEGrAAdhesionBundle:Default:index }
