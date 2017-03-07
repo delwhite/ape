@@ -1,0 +1,16 @@
+services:
+#     delwhite_core.antiSpam:
+#          class: delwhite\CoreBundle\antiSpam
+#          parameters:
+#               arraySpam: ["aaaaaa", "sdfsdf"]
+#          arguments:
+#               "@message"
+
+#     delwhite_core.logger:
+#          class: delwhite\CoreBundle\logger
+#          arguments:
+#              "@message"
+
+#    delwhite_core.example:
+#        class: delwhite\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

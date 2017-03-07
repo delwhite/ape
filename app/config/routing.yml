@@ -1,0 +1,7 @@
+delwhite_core:
+    resource: "@delwhiteCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+delwhite_blog:
+    resource: "@delwhiteBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog

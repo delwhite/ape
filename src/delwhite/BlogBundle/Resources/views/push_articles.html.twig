@@ -1,0 +1,5 @@
+{% for article in articles %}
+    <li>{{ "Mon article d'Id %s et de titre %s" | format(article.id, article.title) }}</li>
+{% endfor %}
+
+<p>{{ "page n° %s/%s" | format(currentPage, nbPage) }}</p>

@@ -1,0 +1,3 @@
+delwhite_core_homepage:
+    path:     /
+    defaults: { _controller: delwhiteCoreBundle:Default:index }

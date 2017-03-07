@@ -1,0 +1,35 @@
+delwhite_blog_helloworld:
+  path: /hello-world
+  defaults: { _controller: delwhiteBlogBundle:Hello:index }
+
+delwhite_blog:
+  path: /
+  defaults: { _controller: delwhiteBlogBundle:Article:index }
+
+delwhite_blog_article_list:
+  path: /article/list/{id}
+  defaults: { _controller: delwhiteBlogBundle:Article:list, id: 1 }
+  requirements:
+    id: \d+
+
+delwhite_blog_article_view:
+  path: /article/{id}
+  defaults: { _controller: delwhiteBlogBundle:Article:view }
+  requirements:
+    id: \d+
+
+delwhite_blog_article_add:
+  path: /article/add
+  defaults: { _controller: delwhiteBlogBundle:Article:add }
+
+delwhite_blog_article_edit:
+  path: /article/edit/{id}
+  defaults: { _controller: delwhiteBlogBundle:Article:edit }
+  requirements:
+    id: \d+
+
+delwhite_blog_article_delete:
+  path: /article/delete/{id}
+  defaults: { _controller: delwhiteBlogBundle:Article:delete }
+  requirements:
+    id: \d+

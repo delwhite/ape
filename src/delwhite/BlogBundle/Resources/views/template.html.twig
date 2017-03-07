@@ -1,0 +1,13 @@
+{% extends "delwhiteCoreBundle::layout.html.twig" %}
+
+
+{% block title %}{{ parent() }} - Blog{% endblock %}
+{% block titleH1 %}Bienvenue sur le Blog !{% endblock %}
+{% block menu %}
+    <li><a href="{{ path('delwhite_blog_article_add') }}">Ajouter un article</a></li>
+{% endblock %}
+
+{% block contenu %}
+    {% block blog_contenu %}{% endblock %}
+    Une phrase d'accroche du blog !
+{% endblock %}
