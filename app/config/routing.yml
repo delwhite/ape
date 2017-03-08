@@ -18,14 +18,6 @@ be_gr_a_produit:
     resource: "@BEGrAProduitBundle/Resources/config/routing.yml"
     prefix:   /
 
-be_gra_utilisateur:
-    resource: "@BeGraUtilisateurBundle/Resources/config/routing.yml"
-    prefix:   /
-
 be_gr_a_core:
     resource: "@BEGrACoreBundle/Resources/config/routing.yml"
     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation

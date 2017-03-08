@@ -13,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Reglement
 {
     /**
+     * @ORM\ManyToOne(targetEntity="BEGrA\OperationBundle\Entity\Facture")
+     */
+    private $numeroFacture;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -65,6 +70,30 @@ class Reglement
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set numeroFacture
+     *
+     * @param int $numeroFacture
+     *
+     * @return Reglement
+     */
+    public function setNumeroFacture($numeroFacture)
+    {
+        $this->numeroFacture = $numeroFacture;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroFacture
+     *
+     * @return int
+     */
+    public function getNumeroFacture()
+    {
+        return $this->numeroFacture;
     }
 
     /**
