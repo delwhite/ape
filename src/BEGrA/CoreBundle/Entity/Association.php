@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Association
 {
     /**
+    * @ORM\ManyToOne(targetEntity="BEGrA\Scolarite\Entity\Etablissement")
+    */
+    private $etablissement;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="BEGrA\CoreBundle\Entity\Association")
+    */
+    private $association;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -44,6 +54,54 @@ class Association
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set etablissement
+     *
+     * @param int $etablissement
+     *
+     * @return Association
+     */
+    public function setEtablissement($etablissement)
+    {
+        $this->etablissement = $etablissement;
+
+        return $this;
+    }
+
+    /**
+     * Get etablissement
+     *
+     * @return int
+     */
+    public function getEtablissement()
+    {
+        return $this->etablissement;
+    }
+
+    /**
+     * Set association
+     *
+     * @param int $association
+     *
+     * @return Association
+     */
+    public function setAssociation($association)
+    {
+        $this->association = $association;
+
+        return $this;
+    }
+
+    /**
+     * Get association
+     *
+     * @return int
+     */
+    public function getAssociation()
+    {
+        return $this->nomAssociation;
     }
 
     /**

@@ -13,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Facture
 {
     /**
+    * @ORM\ManyToOne(targetEntity="BEGrA\AdhesionBundle\Entity\Parent")
+    */
+    private $parent;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -28,6 +33,30 @@ class Facture
      */
     private $dateFacture;
 
+
+    /**
+     * Get parent
+     *
+     * @return int
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param int $parent
+     *
+     * @return Facture
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
 
     /**
      * Get id
