@@ -35,6 +35,19 @@ class Commande
      */
     private $montantCommande;
 
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\OperationBundle\Entity\Facture")
+     */
+    private $facture;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\AdhesionBundle\Entity\Enfant")
+     */
+    private $enfant;
 
     /**
      * Get id
@@ -92,6 +105,54 @@ class Commande
     public function getMontantCommande()
     {
         return $this->montantCommande;
+    }
+
+    /**
+     * Set facture
+     *
+     * @param int $facture
+     *
+     * @return Commande
+     */
+    public function setFacture($facture)
+    {
+        $this->facture = $facture;
+
+        return $this;
+    }
+
+    /**
+     * Get facture
+     *
+     * @return int
+     */
+    public function getFacture()
+    {
+        return $this->facture;
+    }
+
+    /**
+     * Set enfant
+     *
+     * @param int $enfant
+     *
+     * @return Commande
+     */
+    public function setEnfant($enfant)
+    {
+        $this->enfant = $enfant;
+
+        return $this;
+    }
+
+    /**
+     * Get enfant
+     *
+     * @return int
+     */
+    public function getEnfant()
+    {
+        return $this->enfant;
     }
 }
 

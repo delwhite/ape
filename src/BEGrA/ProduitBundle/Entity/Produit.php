@@ -63,6 +63,26 @@ class Produit
      */
     private $quantiteMiniProduit;
 
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\ScolariteBundle\Entity\Classe")
+     */
+    private $classe;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\ScolariteBundle\Entity\Discipline")
+     */
+    private $discipline;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\ScolariteBundle\Entity\Specialite")
+     */
+    private $specialite;
 
     /**
      * Set id
@@ -230,6 +250,78 @@ class Produit
     public function getQuantiteMiniProduit()
     {
         return $this->quantiteMiniProduit;
+    }
+
+    /**
+     * Set classe
+     *
+     * @param int $classe
+     *
+     * @return Produit
+     */
+    public function setClasse($classe)
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    /**
+     * Get classe
+     *
+     * @return int
+     */
+    public function getClasse()
+    {
+        return $this->classe;
+    }
+
+    /**
+     * Set discipline
+     *
+     * @param int $discipline
+     *
+     * @return Produit
+     */
+    public function setDiscipline($discipline)
+    {
+        $this->discipline = $discipline;
+
+        return $this;
+    }
+
+    /**
+     * Get discipline
+     *
+     * @return int
+     */
+    public function getDiscipline()
+    {
+        return $this->discipline;
+    }
+
+    /**
+     * Set specialite
+     *
+     * @param int $specialite
+     *
+     * @return Produit
+     */
+    public function setSpecialite($specialite)
+    {
+        $this->specialite = $specialite;
+
+        return $this;
+    }
+
+    /**
+     * Get specialite
+     *
+     * @return int
+     */
+    public function getSpecialite()
+    {
+        return $this->specialite;
     }
 }
 

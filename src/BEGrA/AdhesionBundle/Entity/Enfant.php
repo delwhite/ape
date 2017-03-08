@@ -35,6 +35,26 @@ class Enfant
      */
     private $prenomEnfant;
 
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\AdhesionBundle\Entity\Parent")
+     */
+    private $parentEnfant;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\ScolariteBundle\Entity\Etablissement")
+     */
+    private $etablissementEnfant;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="BEGrA\ScolariteBundle\Entity\Classe")
+     */
+    private $classeEnfant;
 
     /**
      * Get id
@@ -92,6 +112,78 @@ class Enfant
     public function getPrenomEnfant()
     {
         return $this->prenomEnfant;
+    }
+
+    /**
+     * Set parentEnfant
+     *
+     * @param int $parentEnfant
+     *
+     * @return Enfant
+     */
+    public function setParentEnfant($parentEnfant)
+    {
+        $this->parentEnfant = $parentEnfant;
+
+        return $this;
+    }
+
+    /**
+     * Get parentEnfant
+     *
+     * @return int
+     */
+    public function getParentEnfant()
+    {
+        return $this->parentEnfant;
+    }
+
+    /**
+     * Set etablissementEnfant
+     *
+     * @param int $etablissementEnfant
+     *
+     * @return Enfant
+     */
+    public function setEtablissementEnfant($etablissementEnfant)
+    {
+        $this->etablissementEnfant = $etablissementEnfant;
+
+        return $this;
+    }
+
+    /**
+     * Get etablissementEnfant
+     *
+     * @return int
+     */
+    public function getEtablissementEnfant()
+    {
+        return $this->etablissementEnfant;
+    }
+
+    /**
+     * Set classeEnfant
+     *
+     * @param int $classeEnfant
+     *
+     * @return Enfant
+     */
+    public function setClasseEnfant($classeEnfant)
+    {
+        $this->classeEnfant = $classeEnfant;
+
+        return $this;
+    }
+
+    /**
+     * Get classeEnfant
+     *
+     * @return int
+     */
+    public function getClasseEnfant()
+    {
+        return $this->classeEnfant;
     }
 }
 
