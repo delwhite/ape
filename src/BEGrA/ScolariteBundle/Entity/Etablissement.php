@@ -13,6 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
 class Etablissement
 {
     /**
+     * Etablissement constructor.
+     */
+    public function __construct()
+    {
+        $this->classes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * @ORM\ManyToMany(targetEntity="BEGrA\ScolariteBundle\Entity\Classe")
+     */
+    private $classes;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -58,6 +71,40 @@ class Etablissement
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * add classe
+     *
+     * @param \BEGrA\ScolariteBundle\Entity\Classe $classe
+     *
+     * @return Etablissement
+     */
+    public function addClasse(\BEGrA\ScolariteBundle\Entity\Classe $classe)
+    {
+        $this->classes[] = $classe;
+
+        return $this;
+    }
+
+    /**
+     * Remove classe
+     *
+     * @param \BEGrA\ScolariteBundle\Entity\Classe $classe
+     */
+    public function removeClasse(\BEGrA\ScolariteBundle\Entity\Classe $classe)
+    {
+        $this->classes->removeElement($classe);
+    }
+
+    /**
+     * Get classes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClasses()
+    {
+        return $this->classes;
     }
 
     /**
