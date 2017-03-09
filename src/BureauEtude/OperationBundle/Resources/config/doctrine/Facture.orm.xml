@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BureauEtude\CoreBundle\Entity\Facture" table="facture">
+    <indexes>
+      <index name="FK_facture_id_tuteur" columns="id_tuteur"/>
+    </indexes>
+    <id name="numeroFacture" type="integer" column="numero_facture">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dateFacture" type="date" column="date_facture" nullable="false"/>
+    <many-to-one field="idTuteur" target-entity="Tuteur" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_tuteur" referenced-column-name="id_tuteur"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

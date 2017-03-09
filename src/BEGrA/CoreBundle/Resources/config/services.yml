@@ -1,4 +1,0 @@
-services:
-#    be_gr_a_core.example:
-#        class: BEGrA\CoreBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

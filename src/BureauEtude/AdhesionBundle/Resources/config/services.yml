@@ -1,0 +1,4 @@
+services:
+#    bureau_etude_adhesion.example:
+#        class: BureauEtude\AdhesionBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

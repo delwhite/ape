@@ -1,3 +1,0 @@
-be_gr_a_core_homepage:
-    path:     /
-    defaults: { _controller: BEGrACoreBundle:Default:index }

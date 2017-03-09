@@ -1,3 +1,0 @@
-be_gr_a_scolarite_homepage:
-    path:     /
-    defaults: { _controller: BEGrAScolariteBundle:Default:index }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BureauEtude\CoreBundle\Entity\Etat" table="etat">
+    <id name="idEtat" type="integer" column="id_etat">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="designationEtat" type="string" column="designation_etat" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ratioDecoteAchat" type="float" column="ratio_decote_achat" precision="10" scale="0" nullable="false"/>
+    <field name="ratioDecoteVente" type="float" column="ratio_decote_vente" precision="10" scale="0" nullable="true"/>
+  </entity>
+</doctrine-mapping>

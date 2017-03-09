@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BureauEtude\CoreBundle\Entity\Utilisateur" table="utilisateur">
+    <id name="idUtilisateur" type="integer" column="id_utilisateur">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="login" type="string" column="login" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="motDePasse" type="string" column="mot_de_passe" length="40" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <many-to-many field="idAssociation" target-entity="Association" mapped-by="idUtilisateur" fetch="LAZY"/>
+  </entity>
+</doctrine-mapping>

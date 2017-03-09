@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BureauEtude\CoreBundle\Entity\Etablissement" table="etablissement">
+    <id name="idEtablissement" type="integer" column="id_etablissement">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomEtablissement" type="string" column="nom_etablissement" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="adresseEtablissement" type="string" column="adresse_etablissement" length="300" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="cpEtablissement" type="string" column="cp_etablissement" length="5" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="villeEtablissement" type="string" column="ville_etablissement" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

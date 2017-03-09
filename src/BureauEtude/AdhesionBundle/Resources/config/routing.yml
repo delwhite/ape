@@ -1,0 +1,3 @@
+bureau_etude_adhesion_homepage:
+    path:     /
+    defaults: { _controller: BureauEtudeAdhesionBundle:Default:index }

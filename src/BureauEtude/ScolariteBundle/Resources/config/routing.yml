@@ -1,0 +1,3 @@
+bureau_etude_scolarite_homepage:
+    path:     /
+    defaults: { _controller: BureauEtudeScolariteBundle:Default:index }

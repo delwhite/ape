@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BureauEtude\CoreBundle\Entity\Tuteur" table="tuteur">
+    <id name="idTuteur" type="integer" column="id_tuteur">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomTuteur" type="string" column="nom_tuteur" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="prenomTuteur" type="string" column="prenom_tuteur" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="adresseTuteur" type="string" column="adresse_tuteur" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="telTuteur" type="string" column="tel_tuteur" length="10" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <many-to-many field="idAssociation" target-entity="Association" inversed-by="idTuteur" fetch="LAZY">
+      <join-table name="adherer">
+        <join-columns>
+          <join-column name="id_tuteur" referenced-column-name="id_tuteur"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_association" referenced-column-name="id_association"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

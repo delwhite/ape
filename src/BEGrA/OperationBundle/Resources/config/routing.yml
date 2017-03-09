@@ -1,3 +1,0 @@
-be_gr_a_operation_homepage:
-    path:     /
-    defaults: { _controller: BEGrAOperationBundle:Default:index }

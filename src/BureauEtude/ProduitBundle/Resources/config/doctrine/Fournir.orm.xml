@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BureauEtude\CoreBundle\Entity\Fournir" table="fournir">
+    <indexes>
+      <index name="FK_fournir_id_fournisseur" columns="id_fournisseur"/>
+      <index name="FK_fournir_id_association" columns="id_association"/>
+      <index name="IDX_34D13A52FA891952" columns="ISBN"/>
+    </indexes>
+    <id name="idAssociation" association-key="true"/>
+    <id name="idFournisseur" association-key="true"/>
+    <id name="isbn" association-key="true"/>
+    <field name="prixUnitaire" type="float" column="prix_unitaire" precision="10" scale="0" nullable="false"/>
+    <one-to-one field="isbn" target-entity="Produit" fetch="LAZY">
+      <join-columns>
+        <join-column name="ISBN" referenced-column-name="ISBN"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idFournisseur" target-entity="Fournisseur" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_fournisseur" referenced-column-name="id_fournisseur"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idAssociation" target-entity="Association" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_association" referenced-column-name="id_association"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

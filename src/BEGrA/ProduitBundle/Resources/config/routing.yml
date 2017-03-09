@@ -1,3 +1,0 @@
-be_gr_a_produit_homepage:
-    path:     /
-    defaults: { _controller: BEGrAProduitBundle:Default:index }

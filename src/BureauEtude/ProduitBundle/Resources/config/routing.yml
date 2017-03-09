@@ -1,0 +1,3 @@
+bureau_etude_produit_homepage:
+    path:     /
+    defaults: { _controller: BureauEtudeProduitBundle:Default:index }
