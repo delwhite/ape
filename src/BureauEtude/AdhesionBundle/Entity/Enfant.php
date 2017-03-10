@@ -46,6 +46,17 @@ class Enfant
     private $idEtablissement;
 
     /**
+     * @var \BureauEtude\CoreBundle\Entity\Classe
+     *
+     * @ORM\ManyToOne(targetEntity="BureauEtude\CoreBundle\Entity\Classe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_classe", referencedColumnName="id_classe")
+     * })
+     */
+    private $idClasse;
+
+
+    /**
      * @var \BureauEtude\CoreBundle\Entity\Tuteur
      *
      * @ORM\ManyToOne(targetEntity="BureauEtude\CoreBundle\Entity\Tuteur")
@@ -54,8 +65,6 @@ class Enfant
      * })
      */
     private $idTuteur;
-
-
 
     /**
      * Set nomEnfant
@@ -137,6 +146,30 @@ class Enfant
     public function getIdEtablissement()
     {
         return $this->idEtablissement;
+    }
+
+    /**
+     * Set idClasse
+     *
+     * @param \BureauEtude\CoreBundle\Entity\Classe $idClasse
+     *
+     * @return Enfant
+     */
+    public function setIdClasse(\BureauEtude\CoreBundle\Entity\Classe $idClasse = null)
+    {
+        $this->idClasse = $idClasse;
+
+        return $this;
+    }
+
+    /**
+     * Get idClasse
+     *
+     * @return \BureauEtude\CoreBundle\Entity\Classe
+     */
+    public function getIdClasse()
+    {
+        return $this->idClasse;
     }
 
     /**
