@@ -3,6 +3,10 @@ bureau_etude_adhesion_homepage:
     defaults: { _controller: BureauEtudeAdhesionBundle:Default:index }
 
 
-bureau_etude_adhesion_test:
-    path:     /test
-    defaults: { _controller: BureauEtudeAdhesionBundle:Default:new }
+bureau_etude_adhesion_enfant:
+    path:     /enfant
+    defaults: { _controller: BureauEtudeAdhesionBundle:Default:creerEnfant }
+
+bureau_etude_adhesion_tuteur:
+    path:     /tuteur
+    defaults: { _controller: BureauEtudeAdhesionBundle:Default:creerTuteur }
