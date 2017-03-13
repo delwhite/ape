@@ -24,28 +24,28 @@ class Tuteur
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom_tuteur", type="string", length=255)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom_tuteur", type="string", length=255)
      */
     private $prenom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adresse_tuteur", type="string", length=255)
      */
     private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telephone", type="string", length=10)
+     * @ORM\Column(name="tel_tuteur", type="string", length=10)
      */
     private $telephone;
 

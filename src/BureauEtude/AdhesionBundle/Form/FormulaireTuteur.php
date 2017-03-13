@@ -2,14 +2,17 @@
 
 namespace BureauEtude\AdhesionBundle\Form;
 use BureauEtude\AdhesionBundle\Entity\Tuteur;
+use BureauEtude\AdhesionBundle\Entity\Enfant;
 
-class FormulaireTuteur
+class FormulaireTuteur extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)
+            ->add('adresse', TextType::class)
+            ->add('telephone', TextType::class)
         ;
     }
 

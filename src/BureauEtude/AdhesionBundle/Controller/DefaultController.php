@@ -42,7 +42,7 @@ class DefaultController extends Controller
     public function creerTuteurAction(Request $request)
     {
         $tuteur = new Tuteur();
-        $form = $this->createForm(FormulaireEnfant::class, $tuteur);
+        $form = $this->createForm(FormulaireTuteur::class, $tuteur);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
