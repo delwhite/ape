@@ -1,3 +1,0 @@
-bureau_etude_core_homepage:
-    path:     /
-    defaults: { _controller: BureauEtudeCoreBundle:Default:index }

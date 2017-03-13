@@ -1,4 +1,0 @@
-services:
-#    bureau_etude_produit.example:
-#        class: BureauEtude\ProduitBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

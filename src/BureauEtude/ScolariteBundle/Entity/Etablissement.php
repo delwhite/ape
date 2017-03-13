@@ -1,6 +1,6 @@
 <?php
 
-namespace BureauEtude\CoreBundle\Entity;
+namespace BureauEtude\ScolariteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,152 +8,152 @@ use Doctrine\ORM\Mapping as ORM;
  * Etablissement
  *
  * @ORM\Table(name="etablissement")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BureauEtude\ScolariteBundle\Repository\EtablissementRepository")
  */
 class Etablissement
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="nom_etablissement", type="string", length=25, nullable=false)
-     */
-    private $nomEtablissement;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse_etablissement", type="string", length=300, nullable=false)
-     */
-    private $adresseEtablissement;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cp_etablissement", type="string", length=5, nullable=false)
-     */
-    private $cpEtablissement;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ville_etablissement", type="string", length=100, nullable=false)
-     */
-    private $villeEtablissement;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_etablissement", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idEtablissement;
+    private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codePostal", type="string", length=5)
+     */
+    private $codePostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
 
 
     /**
-     * Set nomEtablissement
+     * Get id
      *
-     * @param string $nomEtablissement
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
      *
      * @return Etablissement
      */
-    public function setNomEtablissement($nomEtablissement)
+    public function setNom($nom)
     {
-        $this->nomEtablissement = $nomEtablissement;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get nomEtablissement
+     * Get nom
      *
      * @return string
      */
-    public function getNomEtablissement()
+    public function getNom()
     {
-        return $this->nomEtablissement;
+        return $this->nom;
     }
 
     /**
-     * Set adresseEtablissement
+     * Set adresse
      *
-     * @param string $adresseEtablissement
+     * @param string $adresse
      *
      * @return Etablissement
      */
-    public function setAdresseEtablissement($adresseEtablissement)
+    public function setAdresse($adresse)
     {
-        $this->adresseEtablissement = $adresseEtablissement;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Get adresseEtablissement
+     * Get adresse
      *
      * @return string
      */
-    public function getAdresseEtablissement()
+    public function getAdresse()
     {
-        return $this->adresseEtablissement;
+        return $this->adresse;
     }
 
     /**
-     * Set cpEtablissement
+     * Set codePostal
      *
-     * @param string $cpEtablissement
+     * @param string $codePostal
      *
      * @return Etablissement
      */
-    public function setCpEtablissement($cpEtablissement)
+    public function setCodePostal($codePostal)
     {
-        $this->cpEtablissement = $cpEtablissement;
+        $this->codePostal = $codePostal;
 
         return $this;
     }
 
     /**
-     * Get cpEtablissement
+     * Get codePostal
      *
      * @return string
      */
-    public function getCpEtablissement()
+    public function getCodePostal()
     {
-        return $this->cpEtablissement;
+        return $this->codePostal;
     }
 
     /**
-     * Set villeEtablissement
+     * Set ville
      *
-     * @param string $villeEtablissement
+     * @param string $ville
      *
      * @return Etablissement
      */
-    public function setVilleEtablissement($villeEtablissement)
+    public function setVille($ville)
     {
-        $this->villeEtablissement = $villeEtablissement;
+        $this->ville = $ville;
 
         return $this;
     }
 
     /**
-     * Get villeEtablissement
+     * Get ville
      *
      * @return string
      */
-    public function getVilleEtablissement()
+    public function getVille()
     {
-        return $this->villeEtablissement;
-    }
-
-    /**
-     * Get idEtablissement
-     *
-     * @return integer
-     */
-    public function getIdEtablissement()
-    {
-        return $this->idEtablissement;
+        return $this->ville;
     }
 }
+

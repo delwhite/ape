@@ -1,3 +1,8 @@
 bureau_etude_adhesion_homepage:
     path:     /
     defaults: { _controller: BureauEtudeAdhesionBundle:Default:index }
+
+
+bureau_etude_adhesion_test:
+    path:     /test
+    defaults: { _controller: BureauEtudeAdhesionBundle:Default:new }

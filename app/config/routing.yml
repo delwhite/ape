@@ -1,7 +1,7 @@
-bureau_etude_core:
-    resource: "@BureauEtudeCoreBundle/Resources/config/routing.yml"
+bureau_etude_scolarite:
+    resource: "@BureauEtudeScolariteBundle/Resources/config/routing.yml"
     prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+bureau_etude_adhesion:
+    resource: "@BureauEtudeAdhesionBundle/Resources/config/routing.yml"
+    prefix:   /

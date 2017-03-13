@@ -1,6 +1,6 @@
 <?php
 
-namespace BureauEtude\CoreBundle\Entity;
+namespace BureauEtude\ScolariteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,59 +8,59 @@ use Doctrine\ORM\Mapping as ORM;
  * Classe
  *
  * @ORM\Table(name="classe")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BureauEtude\ScolariteBundle\Repository\ClasseRepository")
  */
 class Classe
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="nom_classe", type="string", length=25, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nomClasse;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_classe", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idClasse;
-
+    private $nom;
 
 
     /**
-     * Set nomClasse
+     * Get id
      *
-     * @param string $nomClasse
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
      *
      * @return Classe
      */
-    public function setNomClasse($nomClasse)
+    public function setNom($nom)
     {
-        $this->nomClasse = $nomClasse;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get nomClasse
+     * Get nom
      *
      * @return string
      */
-    public function getNomClasse()
+    public function getNom()
     {
-        return $this->nomClasse;
-    }
-
-    /**
-     * Get idClasse
-     *
-     * @return integer
-     */
-    public function getIdClasse()
-    {
-        return $this->idClasse;
+        return $this->nom;
     }
 }
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace BureauEtude\CoreBundle\Entity;
+namespace BureauEtude\AdhesionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,208 +8,172 @@ use Doctrine\ORM\Mapping as ORM;
  * Tuteur
  *
  * @ORM\Table(name="tuteur")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BureauEtude\AdhesionBundle\Repository\TuteurRepository")
  */
 class Tuteur
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="nom_tuteur", type="string", length=100, nullable=false)
-     */
-    private $nomTuteur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom_tuteur", type="string", length=100, nullable=false)
-     */
-    private $prenomTuteur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse_tuteur", type="string", length=25, nullable=false)
-     */
-    private $adresseTuteur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tel_tuteur", type="string", length=10, nullable=false)
-     */
-    private $telTuteur;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_tuteur", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idTuteur;
+    private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string
      *
-     * @ORM\ManyToMany(targetEntity="BureauEtude\CoreBundle\Entity\Association", inversedBy="idTuteur")
-     * @ORM\JoinTable(name="adherer",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_tuteur", referencedColumnName="id_tuteur")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_association", referencedColumnName="id_association")
-     *   }
-     * )
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $idAssociation;
+    private $nom;
 
     /**
-     * Constructor
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
      */
-    public function __construct()
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=10)
+     */
+    private $telephone;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BureauEtude\AdhesionBundle\Entity\Enfant", mappedBy="tuteur")
+     */
+    private $enfants;
+
+    /**
+     * @return mixed
+     */
+    public function getEnfants()
     {
-        $this->idAssociation = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->enfants;
     }
 
+    /**
+     * @param mixed $enfants
+     */
+    public function setEnfants($enfants)
+    {
+        $this->enfants = $enfants;
+    }
 
     /**
-     * Set nomTuteur
+     * Get id
      *
-     * @param string $nomTuteur
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
      *
      * @return Tuteur
      */
-    public function setNomTuteur($nomTuteur)
+    public function setNom($nom)
     {
-        $this->nomTuteur = $nomTuteur;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get nomTuteur
+     * Get nom
      *
      * @return string
      */
-    public function getNomTuteur()
+    public function getNom()
     {
-        return $this->nomTuteur;
+        return $this->nom;
     }
 
     /**
-     * Set prenomTuteur
+     * Set prenom
      *
-     * @param string $prenomTuteur
+     * @param string $prenom
      *
      * @return Tuteur
      */
-    public function setPrenomTuteur($prenomTuteur)
+    public function setPrenom($prenom)
     {
-        $this->prenomTuteur = $prenomTuteur;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
     /**
-     * Get prenomTuteur
+     * Get prenom
      *
      * @return string
      */
-    public function getPrenomTuteur()
+    public function getPrenom()
     {
-        return $this->prenomTuteur;
+        return $this->prenom;
     }
 
     /**
-     * Set adresseTuteur
+     * Set adresse
      *
-     * @param string $adresseTuteur
+     * @param string $adresse
      *
      * @return Tuteur
      */
-    public function setAdresseTuteur($adresseTuteur)
+    public function setAdresse($adresse)
     {
-        $this->adresseTuteur = $adresseTuteur;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Get adresseTuteur
+     * Get adresse
      *
      * @return string
      */
-    public function getAdresseTuteur()
+    public function getAdresse()
     {
-        return $this->adresseTuteur;
+        return $this->adresse;
     }
 
     /**
-     * Set telTuteur
+     * Set telephone
      *
-     * @param string $telTuteur
+     * @param string $telephone
      *
      * @return Tuteur
      */
-    public function setTelTuteur($telTuteur)
+    public function setTelephone($telephone)
     {
-        $this->telTuteur = $telTuteur;
+        $this->telephone = $telephone;
 
         return $this;
     }
 
     /**
-     * Get telTuteur
+     * Get telephone
      *
      * @return string
      */
-    public function getTelTuteur()
+    public function getTelephone()
     {
-        return $this->telTuteur;
-    }
-
-    /**
-     * Get idTuteur
-     *
-     * @return integer
-     */
-    public function getIdTuteur()
-    {
-        return $this->idTuteur;
-    }
-
-    /**
-     * Add idAssociation
-     *
-     * @param \BureauEtude\CoreBundle\Entity\Association $idAssociation
-     *
-     * @return Tuteur
-     */
-    public function addIdAssociation(\BureauEtude\CoreBundle\Entity\Association $idAssociation)
-    {
-        $this->idAssociation[] = $idAssociation;
-
-        return $this;
-    }
-
-    /**
-     * Remove idAssociation
-     *
-     * @param \BureauEtude\CoreBundle\Entity\Association $idAssociation
-     */
-    public function removeIdAssociation(\BureauEtude\CoreBundle\Entity\Association $idAssociation)
-    {
-        $this->idAssociation->removeElement($idAssociation);
-    }
-
-    /**
-     * Get idAssociation
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdAssociation()
-    {
-        return $this->idAssociation;
+        return $this->telephone;
     }
 }
+

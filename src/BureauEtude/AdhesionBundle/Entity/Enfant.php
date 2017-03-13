@@ -1,198 +1,120 @@
 <?php
 
-namespace BureauEtude\CoreBundle\Entity;
-
+namespace BureauEtude\AdhesionBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Enfant
  *
- * @ORM\Table(name="enfant", indexes={@ORM\Index(name="FK_enfant_id_etablissement", columns={"id_etablissement"}), @ORM\Index(name="FK_enfant_id_tuteur", columns={"id_tuteur"})})
- * @ORM\Entity
+ * @ORM\Table(name="enfant")
+ * @ORM\Entity(repositoryClass="BureauEtude\AdhesionBundle\Repository\EnfantRepository")
  */
 class Enfant
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_enfant", type="string", length=100, nullable=false)
-     */
-    private $nomEnfant;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom_enfant", type="string", length=100, nullable=false)
-     */
-    private $prenomEnfant;
-
-    /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id_enfant", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idEnfant;
+    private $id;
 
     /**
-     * @var \BureauEtude\CoreBundle\Entity\Etablissement
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="BureauEtude\CoreBundle\Entity\Etablissement")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_etablissement", referencedColumnName="id_etablissement")
-     * })
+     * @ORM\Column(name="nom_enfant", type="string", length=255)
      */
-    private $idEtablissement;
+    private $nom;
 
     /**
-     * @var \BureauEtude\CoreBundle\Entity\Classe
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="BureauEtude\CoreBundle\Entity\Classe")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_classe", referencedColumnName="id_classe")
-     * })
+     * @ORM\Column(name="prenom_enfant", type="string", length=255)
      */
-    private $idClasse;
-
+    private $prenom;
 
     /**
-     * @var \BureauEtude\CoreBundle\Entity\Tuteur
-     *
-     * @ORM\ManyToOne(targetEntity="BureauEtude\CoreBundle\Entity\Tuteur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_tuteur", referencedColumnName="id_tuteur")
-     * })
+     * @ORM\ManyToOne(targetEntity="BureauEtude\AdhesionBundle\Entity\Tuteur", inversedBy="enfants")
+     * @ORM\Column(name="id_tuteur", type="integer")
+     * @Assert\NotBlank(groups={"test"})
      */
-    private $idTuteur;
+    private $tuteur;
 
     /**
-     * Set nomEnfant
+     * @return mixed
+     */
+    public function getTuteur()
+    {
+        return $this->tuteur;
+    }
+
+    /**
+     * @param mixed $tuteur
+     */
+    public function setTuteur($tuteur)
+    {
+        $this->tuteur = $tuteur;
+    }
+
+    /**
+     * Get id
      *
-     * @param string $nomEnfant
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
      *
      * @return Enfant
      */
-    public function setNomEnfant($nomEnfant)
+    public function setNom($nom)
     {
-        $this->nomEnfant = $nomEnfant;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get nomEnfant
+     * Get nom
      *
      * @return string
      */
-    public function getNomEnfant()
+    public function getNom()
     {
-        return $this->nomEnfant;
+        return $this->nom;
     }
 
     /**
-     * Set prenomEnfant
+     * Set prenom
      *
-     * @param string $prenomEnfant
+     * @param string $prenom
      *
      * @return Enfant
      */
-    public function setPrenomEnfant($prenomEnfant)
+    public function setPrenom($prenom)
     {
-        $this->prenomEnfant = $prenomEnfant;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
     /**
-     * Get prenomEnfant
+     * Get prenom
      *
      * @return string
      */
-    public function getPrenomEnfant()
+    public function getPrenom()
     {
-        return $this->prenomEnfant;
-    }
-
-    /**
-     * Get idEnfant
-     *
-     * @return integer
-     */
-    public function getIdEnfant()
-    {
-        return $this->idEnfant;
-    }
-
-    /**
-     * Set idEtablissement
-     *
-     * @param \BureauEtude\CoreBundle\Entity\Etablissement $idEtablissement
-     *
-     * @return Enfant
-     */
-    public function setIdEtablissement(\BureauEtude\CoreBundle\Entity\Etablissement $idEtablissement = null)
-    {
-        $this->idEtablissement = $idEtablissement;
-
-        return $this;
-    }
-
-    /**
-     * Get idEtablissement
-     *
-     * @return \BureauEtude\CoreBundle\Entity\Etablissement
-     */
-    public function getIdEtablissement()
-    {
-        return $this->idEtablissement;
-    }
-
-    /**
-     * Set idClasse
-     *
-     * @param \BureauEtude\CoreBundle\Entity\Classe $idClasse
-     *
-     * @return Enfant
-     */
-    public function setIdClasse(\BureauEtude\CoreBundle\Entity\Classe $idClasse = null)
-    {
-        $this->idClasse = $idClasse;
-
-        return $this;
-    }
-
-    /**
-     * Get idClasse
-     *
-     * @return \BureauEtude\CoreBundle\Entity\Classe
-     */
-    public function getIdClasse()
-    {
-        return $this->idClasse;
-    }
-
-    /**
-     * Set idTuteur
-     *
-     * @param \BureauEtude\CoreBundle\Entity\Tuteur $idTuteur
-     *
-     * @return Enfant
-     */
-    public function setIdTuteur(\BureauEtude\CoreBundle\Entity\Tuteur $idTuteur = null)
-    {
-        $this->idTuteur = $idTuteur;
-
-        return $this;
-    }
-
-    /**
-     * Get idTuteur
-     *
-     * @return \BureauEtude\CoreBundle\Entity\Tuteur
-     */
-    public function getIdTuteur()
-    {
-        return $this->idTuteur;
+        return $this->prenom;
     }
 }
+
