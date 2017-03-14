@@ -1,48 +1,63 @@
-bureau_etude_adhesion_homepage:
-    path:     /
-    defaults: { _controller: BureauEtudeAdhesionBundle:Default:index }
+#----------------------------------------------------------------------------
+#---------------------------------Enfant-------------------------------------
+#----------------------------------------------------------------------------
 
+bureau_etude_adhesion_enfant_vue:
+    path:     /Enfant/vue/{id}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:vue }
+    requirements:
+      id: \d+
+
+bureau_etude_adhesion_enfant_creer:
+    path:     /Enfant/creer
+    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:creer }
+
+bureau_etude_adhesion_enfant_editer:
+    path:     /Enfant/editer/{id}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:editer }
+    requirements:
+      id: \d+
+
+bureau_etude_adhesion_enfant_supprimer:
+    path:     /Enfant/supprimer/{id}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:supprimer }
+    requirements:
+      id: \d+
 
 bureau_etude_adhesion_enfant_index:
-    path:     /Enfant
-    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:index }
+    path:     /Enfant/{nb}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:index, nb: 1 }
+    requirements:
+      id: \d+
 
-bureau_etude_adhesion_enfant_view:
-    path:     /Enfant
-    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:view }
+#----------------------------------------------------------------------------
+#---------------------------------Tuteur-------------------------------------
+#----------------------------------------------------------------------------
 
-bureau_etude_adhesion_enfant_create:
-    path:     /Enfant
-    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:create }
+bureau_etude_adhesion_tuteur_vue:
+    path:     /Tuteur/vue/{id}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:vue }
+    requirements:
+      id: \d+
 
-bureau_etude_adhesion_enfant_edit:
-    path:     /Enfant
-    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:edit }
-
-bureau_etude_adhesion_enfant_delete:
-    path:     /Enfant
-    defaults: { _controller: BureauEtudeAdhesionBundle:Enfant:delete }
-
-bureau_etude_adhesion_tuteur:
-    path:     /Tuteur
+bureau_etude_adhesion_tuteur_creer:
+    path:     /Tuteur/creer
     defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:creer }
 
+bureau_etude_adhesion_tuteur_editer:
+    path:     /Tuteur/editer/{id}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:editer }
+    requirements:
+      id: \d+
+
+bureau_etude_adhesion_tuteur_supprimer:
+    path:     /Tuteur/supprimer/{id}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:supprimer }
+    requirements:
+      id: \d+
+      
 bureau_etude_adhesion_tuteur_index:
-    path:     /Tuteur
-    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:index }
-
-bureau_etude_adhesion_tuteur_view:
-    path:     /Tuteur
-    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:view }
-
-bureau_etude_adhesion_tuteur_create:
-    path:     /Tuteur
-    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:create }
-
-bureau_etude_adhesion_tuteur_edit:
-    path:     /Tuteur
-    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:edit }
-
-bureau_etude_adhesion_tuteur_delete:
-    path:     /Tuteur
-    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:delete }
+    path:     /Tuteur/{nb}
+    defaults: { _controller: BureauEtudeAdhesionBundle:Tuteur:index, nb: 1 }
+    requirements:
+      id: \d+

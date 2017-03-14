@@ -5,7 +5,7 @@
       <paths name="tpwebWin">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/SFASP2MI/pperri04/public_html/BE" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/SFASP2MI/pperri04/public_html/be_ftp" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

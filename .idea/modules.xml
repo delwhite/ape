@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/be_ftp.iml" filepath="$PROJECT_DIR$/.idea/be_ftp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ape_ftp.iml" filepath="$PROJECT_DIR$/.idea/ape_ftp.iml" />
     </modules>
   </component>
 </project>
