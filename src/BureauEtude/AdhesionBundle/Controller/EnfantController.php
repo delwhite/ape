@@ -8,7 +8,7 @@ use BureauEtude\AdhesionBundle\Form\FormulaireEnfant;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class DefaultController extends Controller
+class EnfantController extends Controller
 {
     public function indexAction()
     {
@@ -19,7 +19,7 @@ class DefaultController extends Controller
     /**
      * @param Request $request
      */
-    public function creerEnfantAction(Request $request)
+    public function creerAction(Request $request)
     {
         $enfant = new Enfant();
         $enfant->setTuteur(1);
@@ -33,25 +33,6 @@ class DefaultController extends Controller
             $em->flush();
         }
 
-        return $this->render('BureauEtudeAdhesionBundle:Default:index.html.twig', ["form" => $form->createView(), ]);
-    }
-
-    /**
-     * @param Request $request
-     */
-    public function creerTuteurAction(Request $request)
-    {
-        $tuteur = new Tuteur();
-        $form = $this->createForm(FormulaireTuteur::class, $tuteur);
-
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($tuteur);
-            $em->flush();
-        }
-
-        return $this->render('BureauEtudeAdhesionBundle:Default:index.html.twig', ["form" => $form->createView(), ]);
+        return $this->render('BureauEtudeAdhesionBundle:Enfant:creer.html.twig', ["form" => $form->createView(), ]);
     }
 }

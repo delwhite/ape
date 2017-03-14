@@ -1,7 +1,7 @@
 bureau_etude_scolarite:
     resource: "@BureauEtudeScolariteBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /Scolarite
 
 bureau_etude_adhesion:
     resource: "@BureauEtudeAdhesionBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /Adhesion
