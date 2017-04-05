@@ -10,9 +10,24 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EnfantController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        return $this->render('BureauEtudeAdhesionBundle:Enfant:index.html.twig');
+        //get id
+        $nb = $request->attributes->get('nb');
+
+        if($nb < 1)
+        {
+            throw new NotFoundHttpException('Aucun article à afficher');
+        }
+
+        $currentPage = $nb;
+        $nbPerPage = 10;//a mettre en parametre global
+
+        $enfants = $this->getDoctrine()->getManager()->getRepository('BureauEtudeAdhesionBundle:Enfant')->findAllWithPaging($currentPage, $nbPerPage);
+
+        $nbTotalPages = ceil(count($enfants) / $nbPerPage);
+
+        return $this->render('BureauEtudeAdhesionBundle:Enfant:index.html.twig', ['nbPage' => $nbTotalPages, 'currentPage' => $currentPage, 'enfants' => $enfants]);
     }
 
 
@@ -40,7 +55,7 @@ class EnfantController extends Controller
     {
         $enfant = new Enfant();
         $enfant->setTuteur(1);
-        $form = $this->createForm(FormulaireEnfant::class, $enfant);
+        $form = $this->createForm(FormulaireEnfant::class,$enfant);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())

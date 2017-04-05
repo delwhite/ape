@@ -1,3 +1,7 @@
+bureau_etude_core:
+    resource: "@BureauEtudeCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 bureau_etude_scolarite:
     resource: "@BureauEtudeScolariteBundle/Resources/config/routing.yml"
     prefix:   /Scolarite
