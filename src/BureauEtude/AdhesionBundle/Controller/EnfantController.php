@@ -77,17 +77,14 @@ class EnfantController extends Controller
         $id = $request->attributes->get("id");
 
         //findById
-        $enfant = $this->getDoctrine()->getManager()->getRepository("BureauEtudeAdhesionBundle:Enfant")->findById($id);
+        $enfant = $this->getDoctrine()->getManager()->getRepository("BureauEtudeAdhesionBundle:Enfant")->findOneById($id);
 
-        //plusieur possible a modif (find one by id ...)
-        $enfant = $enfant[0];
-        //$enfant = new Enfant();
-        //$enfant->setTuteur(1);
         $form = $this->createForm(FormulaireEnfant::class, $enfant);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            $enfant->setTuteur($enfant->getTuteur()->getId());
             $em = $this->getDoctrine()->getManager();
             $em->persist($enfant);
             $em->flush();
