@@ -1,8 +1,8 @@
 <?php
 
 namespace BureauEtude\AdhesionBundle\Controller;
-use BureauEtude\AdhesionBundle\Entity\Tuteur;
 use BureauEtude\AdhesionBundle\Entity\Enfant;
+use BureauEtude\AdhesionBundle\Entity\Tuteur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use BureauEtude\AdhesionBundle\Form\FormulaireEnfant;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,12 +40,11 @@ class EnfantController extends Controller
         $id = $request->attributes->get("id");
 
         //findById
-        $enfant = $this->getDoctrine()->getManager()->getRepository("BureauEtudeAdhesionBundle:Enfant")->findById($id);
+        $enfant = $this->getDoctrine()->getManager()->getRepository("BureauEtudeAdhesionBundle:Enfant")->findOneById($id);
+        $tuteur = $this->getDoctrine()->getManager()
+            ->getRepository("BureauEtudeAdhesionBundle:Tuteur")->findOneById($enfant->getTuteur());
 
-        //plusieur possible a modif (find one by id ...)
-        $enfant = $enfant[0];
-
-        return $this->render('BureauEtudeAdhesionBundle:Enfant:vue.html.twig', ["enfant" => $enfant ]);
+        return $this->render('BureauEtudeAdhesionBundle:Enfant:vue.html.twig', ["enfant" => $enfant, "tuteur" => $tuteur ]);
     }
 
     /**
@@ -54,12 +53,13 @@ class EnfantController extends Controller
     public function creerAction(Request $request)
     {
         $enfant = new Enfant();
-        $enfant->setTuteur(1);
+        //$enfant->setTuteur(1);
         $form = $this->createForm(FormulaireEnfant::class,$enfant);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            $enfant->setTuteur($enfant->getTuteur()->getId());
             $em = $this->getDoctrine()->getManager();
             $em->persist($enfant);
             $em->flush();

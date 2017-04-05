@@ -1,6 +1,10 @@
 <?php
 
 namespace BureauEtude\AdhesionBundle\Repository;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use InvalidArgumentException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * EnfantRepository
@@ -10,4 +14,14 @@ namespace BureauEtude\AdhesionBundle\Repository;
  */
 class EnfantRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllWithPaging($currentPage, $nbPerPage)
+    {
+        $query = $this->createQueryBuilder('enfant')
+            ->getQuery()
+            ->setFirstResult(($currentPage-1) * $nbPerPage)
+            ->setMaxResults($nbPerPage)
+        ;
+
+        return new Paginator($query, true);
+    }
 }

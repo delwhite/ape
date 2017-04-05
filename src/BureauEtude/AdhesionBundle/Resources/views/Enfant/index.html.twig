@@ -1,8 +1,26 @@
-{% for enfant in enfants %}
-    <li>{{ enfant.nom }} {{ enfant.prenom }}</li>
-{% endfor %}
+{% extends "BureauEtudeAdhesionBundle::template.html.twig" %}
 
 
-{% for i in 1..nbPage %}
-    <a href="{{ path("bureau_etude_adhesion_enfant_index", {'nb': i})}}">{{ i }}</a>
-{% endfor %}
+{% block body_adhesion %}
+    <p>
+        <a href="{{ path('bureau_etude_adhesion_enfant_creer') }}">
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Ajouter
+        </a>
+    </p>
+
+    {% for enfant in enfants %}
+        <p>
+            <a href="{{ path("bureau_etude_adhesion_enfant_vue", {id: enfant.id})}}">
+                {{ enfant.nom }} {{ enfant.prenom }}
+            </a>
+        </p>
+    {% endfor %}
+
+
+    <p>
+        {% for i in 1..nbPage %}
+            <a href="{{ path("bureau_etude_adhesion_enfant_index", {'nb': i})}}">{{ i }}</a>
+        {% endfor %}
+    </p>
+{%  endblock %}

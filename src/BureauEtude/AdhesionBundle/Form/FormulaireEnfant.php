@@ -1,10 +1,14 @@
 <?php
 namespace BureauEtude\AdhesionBundle\Form;
+use BureauEtude\AdhesionBundle\Entity\Tuteur;
+use BureauEtude\AdhesionBundle\Repository\TuteurRepository;
 use BureauEtude\AdhesionBundle\Entity\Enfant;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 /**
  * Created by PhpStorm.
@@ -19,6 +23,16 @@ class FormulaireEnfant extends AbstractType
         $builder
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)
+            ->add('tuteur', EntityType::class, array(
+                'class' => 'BureauEtudeAdhesionBundle:Tuteur',
+                'query_builder' => function (TuteurRepository $er)
+                {
+                    return $er->createQueryBuilder('tuteur')
+                        ->orderBy('tuteur.nom', 'ASC');
+                },
+                'choice_label' => 'nom',
+                'choice_label' => 'prenom'
+            ))
         ;
     }
 

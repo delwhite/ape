@@ -4,7 +4,6 @@ namespace BureauEtude\AdhesionBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * Enfant
  *
@@ -39,7 +38,6 @@ class Enfant
     /**
      * @ORM\ManyToOne(targetEntity="BureauEtude\AdhesionBundle\Entity\Tuteur", inversedBy="enfants")
      * @ORM\Column(name="id_tuteur", type="integer")
-     * @Assert\NotBlank(groups={"test"})
      */
     private $tuteur;
 

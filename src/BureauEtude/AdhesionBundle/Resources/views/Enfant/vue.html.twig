@@ -1,3 +1,21 @@
+{% extends "BureauEtudeAdhesionBundle::template.html.twig" %}
+{% block body_adhesion %}
 
-{{ enfant.nom }}
-{{ enfant.prenom }}
+    <div>
+        <p>Information de l'enfant:</p>
+        <p>Nom: {{ enfant.nom }}</p>
+        <p>Prenom: {{ enfant.prenom }}</p>
+        <a href="{{ path('bureau_etude_adhesion_enfant_editer', {'id': enfant.id}) }}">Editer</a>
+        <a href="{{ path('bureau_etude_adhesion_enfant_supprimer', {'id': enfant.id}) }}">Supprimer</a>
+    </div>
+    <hr />
+    <div>
+        <p>Information du tuteur:</p>
+        <p>Nom: {{ tuteur.nom }}</p>
+        <p>Prenom: {{ tuteur.prenom }}</p>
+        <p>Adresse: {{ tuteur.adresse }}</p>
+        <p>Telephone: {{ tuteur.telephone }}</p>
+        <a href="{{ path('bureau_etude_adhesion_tuteur_editer', {'id': tuteur.id}) }}">Editer</a>
+        <a href="{{ path('bureau_etude_adhesion_tuteur_supprimer', {'id': tuteur.id}) }}">Supprimer</a>
+    </div>
+{%  endblock %}

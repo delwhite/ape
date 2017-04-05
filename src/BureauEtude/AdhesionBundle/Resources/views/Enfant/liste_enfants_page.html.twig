@@ -1,6 +1,0 @@
-{% include "BureauEtudeAdhesionBundle:Enfant:liste_enfants.html.twig" %}
-
-
-{% for i in 1..nbPage %}
-    <a href="{{ path("bureau_etude_adhesion_liste_enfant", {'nb': i})}}">{{ i }}</a>
-{% endfor %}

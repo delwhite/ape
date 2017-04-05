@@ -1,7 +1,9 @@
-editer
+{% extends "BureauEtudeAdhesionBundle::template.html.twig" %}
+{% block body_adhesion %}
+    editer
 
-{{ form_start(form) }}
+    {{ form_start(form) }}
     {{ form_widget(form) }}
-<input type="submit" value="Create"
-       class="btn btn-default pull-right" />
-{{ form_end(form) }}
+    <input type="submit" value="Editer" />
+    {{ form_end(form) }}
+{%  endblock %}
