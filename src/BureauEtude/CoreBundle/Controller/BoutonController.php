@@ -9,7 +9,7 @@ class BoutonController extends Controller
     public function indexAction()
     {
 
-        return $this->render('BureauEtudeCoreBundle:Default:index.html.twig');
+        return $this->render('BureauEtudeCoreBundle::index.html.twig');
     }
 
     public function listeProduitsAction()
@@ -27,7 +27,7 @@ class BoutonController extends Controller
         NATURAL JOIN specialite
         WHERE `id_etablissement`=17 AND `id_classe`=15;*/
 
-        return $this->render('BureauEtudeCoreBundle:Default:liste.html.twig');
+        return $this->render('BureauEtudeCoreBundle::liste.html.twig');
     }
 
 
