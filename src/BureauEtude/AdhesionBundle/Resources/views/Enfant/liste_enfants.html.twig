@@ -1,0 +1,4 @@
+Articles recent
+{% for enfant in enfants %}
+    <li><a href="{{ path('bureau_etude_adhesion_enfant_vue', {'id': enfant.id}) }}">{{ enfant.nom }} {{ enfant.prenom }}</a></li>
+{% endfor %}

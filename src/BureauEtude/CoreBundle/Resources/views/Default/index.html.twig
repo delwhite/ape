@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../web/css/css.css">
+</head>
+<body>
+coucou
+<div class="row affix-row">
+    <div class="col-sm-3 col-md-2 affix-sidebar">
+        <div class="sidebar-nav">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="visible-xs navbar-brand">Sidebar menu</span>
+                </div>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                    <ul class="nav navbar-nav" id="sidenav01">
+                        <li class="active">
+                            <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
+                                <h4>
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                    APE Projet
+                                    <br>
+                                </h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
+                                Adhérents
+                            </a>
+                            <div class="collapse" id="toggleDemo" style="height: 0px;">
+                                <ul class="nav nav-list">
+                                    <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Lister</a></li>
+                                    <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Ajouter</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+                                Elèves
+                            </a>
+                            <div class="collapse" id="toggleDemo2" style="height: 0px;">
+                                <ul class="nav nav-list">
+                                    <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Lister</a></li>
+                                    <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Ajouter</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-10 affix-content">
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
